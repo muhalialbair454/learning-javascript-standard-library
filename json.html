@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <script>
+        // https://www.json.org/json-en.html
+        // https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+
+        const person = {
+            firstName: "Muhammad", 
+            middleName: "Ali",
+            lastName: "Albair",
+            age: 22,
+            Address: {
+                country: "Indonesia",
+                city: "Jakarta"
+            },
+            hobbies: [
+                "Coding", "Game", "Traveling"
+            ]
+        };
+       
+        // javascript object convert to JSON, array juga bisa
+        const json = JSON.stringify(person);
+        console.info(json);
+        // sample String JSON (Hasilnya)
+        // {
+        //     "firstName":"Muhammad",
+        //     "middleName":"Ali",
+        //     "lastName":"Albair",
+        //     "age":22,
+        //     "Address":{"country":"Indonesia",
+        //     "city":"Jakarta"},
+        //     "hobbies":["Coding","Game","Traveling"]
+        // }
+        
+        // JSON convert to javascript object, array juga bisa
+        const jsonObject = JSON.parse(json);
+        console.info(jsonObject);
+        
+    </script>
+</body>
+</html>

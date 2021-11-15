@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex</title>
+</head>
+<body>
+    <script>
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+        // Assertions : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Assertions
+        // Character classes : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Character_Classes
+        // Groups and ranges : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges
+        // Quantifiers : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Quantifiers
+        {
+            //create regex
+            //cara1
+            const regex1 = /ali/;
+            //cara2
+            const regex2 = new RegExp("ali");
+            //cara3
+            const regex3 = new RegExp(/ali/);
+        }
+
+        {
+            //test regex
+
+            const name = "muhammad ali albair"
+            const regex = /ali/;
+
+            const result = regex.exec(name); // exec mencari kata
+            console.info(result);
+            console.info(regex.exec("tidak ada"));
+
+            const test = regex.test(name); // boolean t or f, or null
+            console.info(test);
+            console.info(regex.test("tidak ada"));
+        }
+
+        {
+            //regex modifier
+
+            const name = "Muhammad Ali albair\nali Albair\nKartika Anatasya";
+            const regex1 = /^ali/gm; // g global ^ awal m Multiline
+            const regex2 = /Albair/ig; // i incase sensitive
+            
+            let result;
+            while((result = regex1.exec(name)) !== null){
+                console.info(result);
+            }
+
+            while((result = regex2.exec(name)) !== null){
+                console.info(result);
+            }
+        }
+
+        {
+            // advance regex
+
+            const regex= /Al[aiueo]/ig
+
+            const name = "ali ala alu alp apo aliale aluy baley baluy"; // ali ala alu ali ale alu ale alu
+            let result;
+            while((result = regex.exec(name)) !== null){
+                console.info(result);
+            }
+        }
+
+        {
+            // advace regex
+
+            const name = "uwa uwi uwe uwo uwaw wawaw uwaow uewew wuewe uewe"
+
+            console.info(name.match(/uw[aiueo]/ig)); // uwa uwi uwe uwo uwa uwa
+            console.info(name.search(/uw[aiueo]/ig)); // indeks : 0
+            console.info(name.replace(/uw[aiueo]/i, "kamu")); // kamu replace ke 1, data asli tidak berubah
+            console.info(name.replaceAll(/uw[aiueo]/ig, "kamu")); // kamu replace global/semua, data asli tidak berubah
+            console.info(name.split(/e/ig))
+        }
+
+    </script>
+</body>
+</html>
